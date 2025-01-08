@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                 document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-1').style.display = 'none';
+                 document.getElementById('activity-5').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - H2 - M21.5</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+<!-- Actividad 1 -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_ritual')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 2.5 minutos</div>
+        <div class="subtitle">Preparación para la práctica y conexión con el conocimiento previo.</div>
+    </div>
+    <div id="saludo_ritual" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 2 "Bienvenida".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hola, Genios. Hoy vamos a continuar nuestra exploración del editor de Bubble implementando el registro de usuarios para nuestra aplicación. ¡Prepárense para conectar diseño y funcionalidad!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 3 "¿Cómo Están?".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de comenzar, quiero saber cómo se sienten. Si están listos para construir su propia funcionalidad, hagan un círculo con sus manos. Si necesitan recargar energías, levanten las manos hacia el techo."</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 4 "Gracias por Asistir".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, juntemos nuestras manos en agradecimiento por estar aquí, listos para aprender y crear algo increíble. ¡Gracias por asistir, Genios!"</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 5 "Objetivos de la Misión".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy tenemos dos objetivos principales: 1. Continuar creando la pantalla de registro de usuario en Bubble. 2. Asegurar que la información pueda ser capturada para comenzar a crear la funcionalidad de registro."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 2 -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">✨ Actividad 2: State Change ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Recargar energías y mejorar la coordinación con aplausos rítmicos.</div>
+    </div>
+    <div id="state_change" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 6 "Aplausos de Energía".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, vamos a activar nuestra energía con aplausos rítmicos. Sigan mi ritmo: aplaudan una vez, luego dos veces más rápido, y finalmente tres veces aún más rápido. ¡Comencemos!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 7 "Cronómetro - 1 Minuto".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 8 "Beneficios de los Aplausos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Muy bien, Genios. Estos aplausos no solo aumentan nuestra energía, sino que también mejoran nuestra coordinación y concentración. ¡Ahora estamos listos para continuar con nuestra misión!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 3 -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">🤝 Actividad 3: Team Gnius ⏰ Tiempo: 3 minutos</div>
+        <div class="subtitle">Reunión de equipos para la actividad práctica.</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <table>
+             <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 9 "Reunión de Equipos".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, ahora reúnanse con los mismos equipos de la misión anterior. Mantener la continuidad nos ayudará a avanzar de manera eficiente. Tienen un minuto para organizarse."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 10 "Cronómetro - 1 Minuto".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+             <tr>
+                 <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 11 "Recoger Magic Tablets".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, un representante de cada equipo pase a recoger las Magic Tablets. Asegúrense de tener todas sus herramientas listas para el reto. Tienen un minuto para completar esta tarea."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 12 "Cronómetro - 1 Minuto".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 4 -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">🚀 Actividad 4: Challenge ⏰ Tiempo: 39 minutos</div>
+        <div class="subtitle">Implementación práctica de la pantalla de registro de usuario en Bubble.</div>
+    </div>
+    <div id="challenge" class="content">
+        <table>
+            <tr>
+               <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 13 "Título del Challenge".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, es momento de llevar a la práctica el diseño de la pantalla de registro. Hoy continuarán implementando esta funcionalidad, aplicando todo lo que aprendieron sobre el editor de Bubble en la última misión. ¡Prepárense para ver cómo sus ideas se materializan en una aplicación real!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 14 "Continuación del Diseño de Registro".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "El reto de hoy consiste en seguir trabajando en la pantalla de registro de usuarios. Primero, abran Bubble y creen una nueva página donde diseñarán esta funcionalidad. Añadan los elementos necesarios, como inputs de texto para correo electrónico, contraseña y cualquier otro dato que consideren necesario. Asegúrense de que la interfaz sea clara e intuitiva. Coloquen también un botón para el registro. Recuerden que hoy nos enfocamos en la interfaz y estructura, la funcionalidad y lógica la implementaremos en la siguiente sesión. ¡Tienen 30 minutos para trabajar en el registro de usuarios!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (30 minutos):</strong> Proyectar Diapositiva 15 "Cronómetro - 30 Minutos".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+           <tr>
+               <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 16 "Intercambio de Ideas".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, ahora reúnanse con el equipo más cercano y muestren sus pantallas de registro de usuario. Compartan qué elementos utilizaron, por qué eligieron esa distribución y qué desafíos enfrentaron. Este intercambio de ideas les permitirá aprender de las experiencias de sus compañeros."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 5 (5 minutos):</strong> Proyectar Diapositiva 17 "Cronómetro - 5 Minutos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+           </tr>
+            <tr>
+                <td><strong>PASO 6 (0.5 minutos):</strong> Proyectar Diapositiva 18 "Revisión de Objetivos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, revisemos lo que hemos logrado hoy. Hemos avanzado en la implementación de la pantalla de registro de usuario en Bubble, comenzando a dar forma a nuestra aplicación. Cada paso nos acerca a una aplicación funcional y completa. ¡Han hecho un gran trabajo!"</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 7 (0.5 minutos):</strong> Proyectar Diapositiva 19 "You've Got Mon-e".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Felicidades, Genios! Han demostrado una vez más su capacidad para aplicar sus conocimientos en la creación de aplicaciones. Su esfuerzo y dedicación merecen un reconocimiento especial. ¡You've Got Mon-e por su excelente trabajo!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 5 -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">🏅 Actividad 5: Honor de Dojo ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Cierre de la sesión con orden y respeto al espacio.</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <table>
+            <tr>
+                 <td><strong>PASO 1 (2 minutos):</strong> Proyectar Diapositiva 20 "Honor de Dojo".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, es momento de honrar nuestro espacio. Asegúrense de devolver las Magic Tablets, recoger cualquier material y dejar todo en orden. Mantener nuestro Dojo limpio nos ayuda a trabajar mejor. ¡Gracias por su colaboración!"</td>
+           </tr>
+        </table>
+    </div>
+</div>
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+</div>
+
+</body>
+</html>
